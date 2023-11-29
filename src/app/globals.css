@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-custom {
+  background-image: url('../../public/test.png');
+  background-size: contain;
+  background-position: right bottom ; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+
+
+@media screen and (min-width: 768px) {
+      .bm-burger-button {
+        display: none;
+      }
+}
+
