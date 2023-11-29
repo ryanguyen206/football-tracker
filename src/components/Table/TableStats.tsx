@@ -6,7 +6,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import axios from 'axios'
 import { useMutation, useQuery, useQueryClient} from 'react-query'
-import { fetchWatchlist,  removeTeam, addTeam } from '@/lib/watchlist/helper'
+import { fetchWatchlist,  removeTeam, addTeam } from '@/helperFn/watchlist/helper'
 
 type TableStatsProps = {
     headers:string[]
@@ -41,7 +41,7 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
     }, [dummyData])
 
 
-    const handleSortByAscOrDesc = (header : any) => {
+    const handleSortByAscOrDesc = (header : string) => {
         const sortedData = [...data]; 
         const actualHeader = headerAliases[header] || header;
 

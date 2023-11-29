@@ -5,7 +5,7 @@ import {Selection} from "@react-types/shared";
 import {Dropdown,DropdownTrigger,DropdownMenu,DropdownItem,Button} from "@nextui-org/react";
 import { dummyData } from '@/app/matches'
 import { useQuery } from 'react-query';
-import { fetchWeeklyMatches, fetchStandings, fetchCurrentWeek } from '@/lib/fetchData';
+import { fetchWeeklyMatches, fetchStandings, fetchCurrentWeek } from '@/helperFn/helper';
 import { oneMatch } from '@/weeklyMatches';
 
 
