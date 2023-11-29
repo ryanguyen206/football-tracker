@@ -22,7 +22,7 @@ const UserAuthForm: FC<UserAuthFormProps> =  ({}) => {
         <h1 className='mb-10'>Login with any provider</h1>
         <GoogleButton
           type="dark" // can be light or dark
-          onClick={() => signIn('google',  { callbackUrl: '/' })}
+          onClick={() => signIn('google',  { callbackUrl: '/watchlist' })}
         />
       </div>
      
