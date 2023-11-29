@@ -13,7 +13,7 @@ const Watchlist = () => {
   const queryClient = useQueryClient();
   const {data : session} = useSession();
 
-  const { data: watchlist } = useQuery({
+  const { data: watchlist, isLoading } = useQuery({
     queryKey: ['watchlist'],
     queryFn: () => fetchWatchlist(),
     onSuccess: (data) => {
@@ -27,6 +27,11 @@ const Watchlist = () => {
       await queryClient.invalidateQueries({ queryKey: ['watchlist'] })
     }
   })
+
+  if (isLoading)
+  {
+    return <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl'>Loading...</p>
+  }
 
   return (
     <div className='h-screen text-center'>
