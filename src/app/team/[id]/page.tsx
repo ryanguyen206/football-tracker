@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import {fetchOneTeamStats} from '../../../lib/fetchData'
+import {fetchOneTeamStats} from '../../../helperFn/helper'
 
 
 const SingleTeam = ({ params }: { params: { id: string } }) => {

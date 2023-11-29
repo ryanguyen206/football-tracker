@@ -2,6 +2,12 @@ import { oneMatch, standings, weeklyMatches } from "@/weeklyMatches";
 import axios from "axios";
 
 
+export const getPSTTime = (timestamp: string) => {
+  const utcDate = new Date(timestamp);
+  const pstTime = utcDate.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+  return pstTime;
+};
+
 
 export const fetchWeeklyMatches = async () => {
     const response : weeklyMatches = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/SchedulesBasic/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
@@ -24,7 +30,6 @@ export const fetchOneTeamStats = async ({team} : { team: string } ) => {
   const response = await axios.get(`/api/watchlist`);
   const data =  response.data;
   const specificTeam = data.filter((singleTeam : any ) => singleTeam.Name === team);
-  console.log(specificTeam);
   return specificTeam;
 };
 

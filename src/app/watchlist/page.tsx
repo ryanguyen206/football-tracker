@@ -1,9 +1,7 @@
 'use client'
 import { useMutation, useQuery, useQueryClient} from 'react-query';
-import {fetchWatchlist, removeTeam } from '@/lib/watchlist/helper';
+import {fetchWatchlist, removeTeam } from '@/helperFn/watchlist/helper';
 import { useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
-import { useEffect } from 'react';
 import Link from 'next/link'
 
 

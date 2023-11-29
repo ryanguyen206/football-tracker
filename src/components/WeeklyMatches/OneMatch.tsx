@@ -1,7 +1,7 @@
 "use client"
 import { FC } from "react";
 import { oneMatch, standing, standings } from "@/weeklyMatches";
-import { getPSTTime } from "@/helper";
+import { getPSTTime } from "@/helperFn/helper";
 import { useEffect, useState } from "react";
 import { dummyData } from "@/app/standings";
 import axios from "axios";
