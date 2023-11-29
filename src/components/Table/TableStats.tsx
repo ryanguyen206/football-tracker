@@ -24,16 +24,11 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
 
     const {data : session} = useSession();
 
-    let watchlist : any;
 
-    if (session) {
-      const { data: fetchedWatchlist } = useQuery({
+      const { data: watchlist } = useQuery({
         queryKey: ['watchlist'],
         queryFn: () => fetchWatchlist(),
       });
-
-      watchlist = fetchedWatchlist;
-    }
 
     const headerAliases: { [key: string]: string } = {
         Interceptions: 'OpponentPassingInterceptions',
@@ -44,9 +39,6 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
     useEffect(() => {
       setData(dummyData)
     }, [dummyData])
-
-    //only if logged in, fetch watchlist
-
 
 
     const handleSortByAscOrDesc = (header : any) => {
