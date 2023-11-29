@@ -1,3 +1,4 @@
+## Introduction
 Football Tracker aims to provide users with real-time data regarding team stats, standings and weekly matches. Users are also able to create their own personalized watchlist that consists of their favorite teams.
 
 This is a fullstack project using Next.js, NextAuth, React.js, Tailwind, Prisma, PostgreSQL. 
