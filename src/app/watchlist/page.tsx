@@ -11,11 +11,7 @@ import Link from 'next/link'
 
 const Watchlist = () => {
   const queryClient = useQueryClient();
-
   const {data : session} = useSession();
-
- 
-
 
   const { data: watchlist } = useQuery({
     queryKey: ['watchlist'],

@@ -16,7 +16,7 @@ export const fetchStandings = async () => {
 }
 
 export const fetchAllTeamStats = async () => {
-  const response : standings = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/Standings/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
   return response.data
 }
 
