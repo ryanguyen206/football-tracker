@@ -4,31 +4,22 @@ import { Button } from '@nextui-org/react'
 import Link from 'next/link'
 import React, { FC, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
-import axios from 'axios'
-import { useMutation, useQuery, useQueryClient} from 'react-query'
-import { fetchWatchlist,  removeTeam, addTeam } from '@/helperFn/watchlist/helper'
+import useAddOrRemoveTeamQuery from '@/hooks/useAddOrRemoveTeamQuery'
+import useGetUserWatchlist from '@/hooks/useGetUserWatchlist'
+import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsQuery'
 
 type TableStatsProps = {
     headers:string[]
-    dummyData: finalTeamStats[]
     which: string
 }
 
 
 
-const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
-    const queryClient = useQueryClient();
-    const [data, setData] = useState<finalTeamStats[]>([]);
+const TableStats : FC<TableStatsProps> = ({which, headers}) => {
     const [sortAscending, setSortAscending] = useState(true);
-    
-
     const {data : session} = useSession();
-
-
-      const { data: watchlist } = useQuery({
-        queryKey: ['watchlist'],
-        queryFn: () => fetchWatchlist(),
-      });
+    const {removeTeamMutation, addTeamMutation} = useAddOrRemoveTeamQuery();
+    const {watchlist, isLoading} = useGetUserWatchlist()
 
     const headerAliases: { [key: string]: string } = {
         Interceptions: 'OpponentPassingInterceptions',
@@ -36,13 +27,11 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
         'Rushing':'RushingYards'
     };
     
-    useEffect(() => {
-      setData(dummyData)
-    }, [dummyData])
+    const {allTeams, setAllTeams} = useFetchAllTeamsQuery()
 
 
     const handleSortByAscOrDesc = (header: string) => {
-      const sortedData = [...data];
+      const sortedData = [...allTeams];
       const actualHeader = headerAliases[header] || header;
     
       if (header.toLowerCase() === 'team') {
@@ -74,27 +63,12 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
         }
       }
     
-      setData(sortedData);
+      setAllTeams(sortedData);
       setSortAscending(!sortAscending);
     };
     
- 
-    
-      const addTeamMutation = useMutation({
-        mutationFn: (variables: { team: string; userId: string }) => addTeam(variables),
-        onSuccess: async () => {
-          await queryClient.invalidateQueries({ queryKey: ['watchlist'] })
-        }
-      })
 
-      const removeTeamMutation = useMutation({
-        mutationFn: (variables: { team: string; userId: string }) => removeTeam(variables),
-        onSuccess: async () => {
-          await queryClient.invalidateQueries({ queryKey: ['watchlist'] })
-        }
-      })
       
-  
     return (
     <div data-aos='fade-up'>
            <table className="table-auto w-full text-center">
@@ -113,7 +87,7 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
                 </tr>       
             </thead>
             <tbody className='border w-full '>
-                {data?.map((oneTeam : finalTeamStats) => (
+                {allTeams?.map((oneTeam : finalTeamStats) => (
                     <tr className="border-b bg-squarebg" key={oneTeam.Team}>
                         <td className='text-md lg:text-2xl'> <Link href={`/team/${oneTeam.Team}`}>{oneTeam.Team}</Link></td>
                         {which === 'offense' ?

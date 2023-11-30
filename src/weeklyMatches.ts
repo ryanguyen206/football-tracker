@@ -57,6 +57,7 @@ export type defense = {
 
 export type finalTeamStats = {
     Team: string,
+    TeamName: string
     Offense: offense,
     Defense: defense
 }
