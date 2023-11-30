@@ -41,30 +41,42 @@ const TableStats : FC<TableStatsProps> = ({which, headers, dummyData}) => {
     }, [dummyData])
 
 
-    const handleSortByAscOrDesc = (header : string) => {
-        const sortedData = [...data]; 
-        const actualHeader = headerAliases[header] || header;
-
-        if (which === 'offense') {
-            sortedData.sort((a, b) => {
-              if (sortAscending) {
-                return a.Offense[actualHeader] - b.Offense[actualHeader];
-              } else {
-                return b.Offense[actualHeader] - a.Offense[actualHeader];
-              }
-            });
+    const handleSortByAscOrDesc = (header: string) => {
+      const sortedData = [...data];
+      const actualHeader = headerAliases[header] || header;
+    
+      if (header.toLowerCase() === 'team') {
+        sortedData.sort((a, b) => {
+          if (sortAscending) {
+            return a.Team.localeCompare(b.Team);
           } else {
-            sortedData.sort((a, b) => {
-                if (sortAscending) {
-                  return a.Defense[actualHeader] - b.Defense[actualHeader];
-                } else {
-                  return b.Defense[actualHeader] - a.Defense[actualHeader];
-                }
-              });
+            return b.Team.localeCompare(a.Team);
           }
-        setData(sortedData); 
-        setSortAscending(!sortAscending); 
-      };
+        });
+      } else {
+        // Sorting by Offense or Defense based on the header
+        if (which === 'offense') {
+          sortedData.sort((a, b) => {
+            if (sortAscending) {
+              return a.Offense[actualHeader] - b.Offense[actualHeader];
+            } else {
+              return b.Offense[actualHeader] - a.Offense[actualHeader];
+            }
+          });
+        } else {
+          sortedData.sort((a, b) => {
+            if (sortAscending) {
+              return a.Defense[actualHeader] - b.Defense[actualHeader];
+            } else {
+              return b.Defense[actualHeader] - a.Defense[actualHeader];
+            }
+          });
+        }
+      }
+    
+      setData(sortedData);
+      setSortAscending(!sortAscending);
+    };
     
  
     
