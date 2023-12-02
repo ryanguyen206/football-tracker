@@ -27,16 +27,14 @@ export type allTeamStats = {
 }
 
 export type teamStats = {
-        Team:string,
-        Touchdowns:number,
-        RushingYards:number,
-        PassingYards:number, 
-
-
-        
-        Takeaways:number,
-        Sacks:number,
-        OpponentPassingInterceptions:number,
+    Team:string,
+    TeamName:string,
+    Touchdowns:number,
+    RushingYards:number,
+    PassingYards:number, 
+    Takeaways:number,
+    Sacks:number,
+    OpponentPassingInterceptions:number,
 }
 
 
