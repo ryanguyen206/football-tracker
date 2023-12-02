@@ -1,11 +1,10 @@
 'use client'
 import React, {useState } from 'react'
-import { slide as Menu } from 'react-burger-menu'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import Image from 'next/image'
 import { signOut } from 'next-auth/react'
 import HamburgerMenu from './HamburgerMenu'
+import Searchbar from './Searchbar'
 
 
 const Navbar = () => {
@@ -15,6 +14,7 @@ const Navbar = () => {
     <div className='py-6'>
         <div className='flex items-center justify-between'>
             <Link href='/' className='text-xl md:text-2xl xl:text-4xl'>Football Tracker</Link>
+            <Searchbar/>
             <ul className='hidden text-xl md:flex '>
                 {session && 
                 <>
@@ -29,7 +29,6 @@ const Navbar = () => {
                     Sign Out
                   </button></li>
                 </> }
-         
                 {!session && <li className='text-xl md:text-2xl mr-8 py-4 px-6 rounded-full bg-customBlueTwo transition-transform duration-300 cursor-pointer hover:bg-customHover hover:transform hover:translate-y-1'><Link href="/sign-in">Sign In</Link></li> }
             </ul> 
             <HamburgerMenu/>
