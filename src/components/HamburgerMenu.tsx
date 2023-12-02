@@ -19,7 +19,7 @@ const HamburgerMenu = () => {
     <>
        {!isOpen && <GiHamburgerMenu className='md:hidden w-12 h-12 hover:cursor-pointer' onClick={toggleMenu}/>}
        {isOpen &&
-        <div data-aos='fade-left' className="flex justify-center items-center h-40 m-0 p-0 w-full bg-squarebg z-10 absolute top-0 left-0 text-center">
+        <div data-aos='fade-left' className="flex justify-center items-center h-40 m-0 p-0 w-full bg-squarebg z-10 absolute top-0 left-0 text-center md:hidden">
            <MdCancel className='absolute top-2 right-2 hover:cursor-pointer' onClick={() => setIsOpen(false)}/>
            <div className="flex flex-col gap-4">
             <Link href='/' className="text-black" onClick={() => setIsOpen(false)}>Home</Link>
