@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import {Input} from "@nextui-org/react";
 import { useQueryClient } from 'react-query';
 import { finalTeamStats } from '@/weeklyMatches';
+import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsQuery';
 
 const Searchbar = () => {
 
-    const queryClient = useQueryClient();
-    const data : finalTeamStats[] | undefined = queryClient.getQueryData(['allTeamStats'])
+    const {allTeams} = useFetchAllTeamsQuery()
     const [query, setQuery] = useState('')
     const [filteredItems, setFilteredItems] = useState<finalTeamStats[] | undefined>([])
 
@@ -17,14 +17,14 @@ const Searchbar = () => {
             setFilteredItems([]);
             return;
         }
-        const tempFilteredItems = data?.filter((singleTeam : finalTeamStats) => singleTeam.Team.startsWith(userInput.toUpperCase()))
+        const tempFilteredItems = allTeams?.filter((singleTeam : finalTeamStats) => singleTeam.Team.startsWith(userInput.toUpperCase()))
         setFilteredItems(tempFilteredItems)
     }
 
   return (
     <div className="relative">
         {
-            data && data.length > 0 &&       
+            allTeams && allTeams.length > 0 &&       
             <Input 
                 type="email" 
                 placeholder="Search Team" 
