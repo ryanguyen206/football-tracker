@@ -1,7 +1,7 @@
 import { fetchAllTeamStats } from '@/helperFn/helper';
 import React, { useState } from 'react'
 import { useQuery } from 'react-query';
-import {offense, defense, finalTeamStats} from '@/weeklyMatches'
+import {offense, defense, finalTeamStats} from '@/interfaces'
 
 const useFetchAllTeamsQuery = () => {
 

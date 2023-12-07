@@ -1,6 +1,6 @@
 "use client"
 import { FC } from "react";
-import { oneMatch, standing} from "@/weeklyMatches";
+import { oneMatch, standing} from "@/interfaces";
 import { getPSTTime } from "@/helperFn/helper";
 import { useEffect, useState } from "react";
 
@@ -16,7 +16,7 @@ const OneMatch: FC<WeekMatchProps> = ({match, homeTeam, awayTeam, standings, wee
 
     const [currentHomeTeam, setHomeTeam] = useState<standing>()
     const [currentAwayTeam, setAwayTeam] = useState<standing>()
-    
+
     useEffect(() => {
       if(standings && week)
       {

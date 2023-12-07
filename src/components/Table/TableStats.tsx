@@ -1,5 +1,5 @@
 'use client'
-import {finalTeamStats} from '@/weeklyMatches'
+import {finalTeamStats} from '@/interfaces'
 import { Button } from '@nextui-org/react'
 import Link from 'next/link'
 import React, { FC, useEffect, useState } from 'react'

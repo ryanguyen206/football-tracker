@@ -5,7 +5,7 @@ import {Selection} from "@react-types/shared";
 import {Dropdown,DropdownTrigger,DropdownMenu,DropdownItem,Button} from "@nextui-org/react";
 import { useQuery } from 'react-query';
 import { fetchWeeklyMatches, fetchStandings, fetchCurrentWeek } from '@/helperFn/helper';
-import { oneMatch } from '@/weeklyMatches';
+import { oneMatch } from '@/interfaces';
 import useGetTeamStandings from '@/hooks/useGetTeamStandings';
 
 
@@ -45,7 +45,7 @@ const Weekly = () => {
   })
 
   return (
-    <div className="pb-20 text-center" data-aos="fade-up" data-aos-once="true">
+    <div id="weeklyMatches" className="pb-20 text-center" data-aos="fade-up" data-aos-once="true">
       <h1 className='text-5xl font-bold mb-10'>Matches</h1>
       <Dropdown>
       <DropdownTrigger>

@@ -24,10 +24,10 @@ const Hero = () => {
                 <p className='text-center text-xl mb-20 leading-relaxed font-light xl:mb-20 xl:text-left xl:w-5/12'>Our platform offers comprehensive insights, from weekly match-ups to in-depth team statistics, helping you make informed decisions and stay ahead of the competition.</p>
                 <div className='flex flex-col justify-center items-center gap-y-12 tablet:flex-row tablet:gap-y-0 tablet:gap-x-9 xl:justify-start'>
                   <div className='transition-transform duration-300 cursor-pointer hover:transform hover:-translate-y-1'>
-                    <Link href="#weeklyMatches" className="px-8 py-4 md:px-10 rounded-lg text-xl font-light bg-primary  " >Matches</Link>
+                    <Link href="/#weeklyMatches" className="px-8 py-4 md:px-10 rounded-lg text-xl font-light bg-primary  " >Matches</Link>
                   </div>
                   <div className='transition-transform duration-300 cursor-pointer hover:transform hover:-translate-y-1'> 
-                    <Link href="#weeklyMatches" className='px-8 py-4 md:px-10 rounded-lg text-xl font-light  bg-secondary'>Team Stats</Link>
+                    <Link href="/#teamStats" className='px-8 py-4 md:px-10 rounded-lg text-xl font-light  bg-secondary'>Team Stats</Link>
                   </div> 
                 </div>          
         </div>
