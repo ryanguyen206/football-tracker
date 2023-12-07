@@ -1,4 +1,4 @@
-import { oneMatch, standings, weeklyMatches } from "@/weeklyMatches";
+import { Player, oneMatch, standings, weeklyMatches } from "@/interfaces";
 import axios from "axios";
 
 
@@ -27,9 +27,8 @@ export const fetchAllTeamStats = async () => {
 }
 
 export const fetchOneTeamStats = async ({id} : { id: string } ) => {
-  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
-  const data =  response.data;
-  const specificTeam = data.filter((singleTeam : any ) => singleTeam.Team === id);
+  const allTeamStats = await fetchAllTeamStats()
+  const specificTeam = allTeamStats.filter((singleTeam : any ) => singleTeam.Team === id);
   return specificTeam;
 };
 
@@ -37,4 +36,10 @@ export const fetchOneTeamStats = async ({id} : { id: string } ) => {
 export const fetchCurrentWeek = async () => {
   const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
   return response.data;
+}
+
+export const getPlayersByTeam = async (teamName: string) => {
+  const response = await axios.get(` https://api.sportsdata.io/v3/nfl/scores/json/PlayersBasic/${teamName}?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+  const filterByOffAndDef = response.data.filter((singlePlayer : Player) =>  singlePlayer.Status === 'Active')
+  return filterByOffAndDef
 }
