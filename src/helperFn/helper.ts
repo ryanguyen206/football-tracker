@@ -26,10 +26,10 @@ export const fetchAllTeamStats = async () => {
   return response.data
 }
 
-export const fetchOneTeamStats = async ({team} : { team: string } ) => {
+export const fetchOneTeamStats = async ({id} : { id: string } ) => {
   const response = await axios.get(`/api/watchlist`);
   const data =  response.data;
-  const specificTeam = data.filter((singleTeam : any ) => singleTeam.Name === team);
+  const specificTeam = data.filter((singleTeam : any ) => singleTeam.Name === id);
   return specificTeam;
 };
 

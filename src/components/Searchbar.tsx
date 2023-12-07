@@ -37,7 +37,7 @@ const Searchbar = () => {
             <div className='absolute top-14 w-full border rounded-xl flex flex-col shadow-sm'>
                 {filteredItems?.map((team) => (
                     <Link href={`/team/${team.Team}`} onClick={() => setFilteredItems([])}>
-                        <div className='p-4 hover:cursor-pointer hover:bg-slate-200 ' key={team.Team} >
+                        <div  key={team.TeamName} className='p-4 hover:cursor-pointer hover:bg-slate-200 '>
                             <p className='font-semibold'>{team.Team}</p>
                             <p className='font-medium'>{team.TeamName}</p>
                         </div>

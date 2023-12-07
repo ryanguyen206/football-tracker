@@ -3,34 +3,19 @@ import React, {useEffect, useMemo, useState } from 'react'
 import WeekMatch from './OneMatch'
 import {Selection} from "@react-types/shared";
 import {Dropdown,DropdownTrigger,DropdownMenu,DropdownItem,Button} from "@nextui-org/react";
-import { dummyData } from '@/app/matches'
 import { useQuery } from 'react-query';
 import { fetchWeeklyMatches, fetchStandings, fetchCurrentWeek } from '@/helperFn/helper';
 import { oneMatch } from '@/weeklyMatches';
+import useGetTeamStandings from '@/hooks/useGetTeamStandings';
 
 
 const Weekly = () => {
-  const [matches, setMatches] = useState<oneMatch[] | null>()
+
+  const {standings} = useGetTeamStandings();
   const [selected, setSelected] = useState<Selection>(new Set([]));
   const selectedValue = useMemo(() => Array.from(selected).join(", ").replaceAll("_", " "), [selected],
   );
-
   const [weeks, setWeeks] = useState<number[]>([])
-
-  //LOCAL ENV
-  // useEffect(() => {
-  //   const getWeeklyMatches = async () => {
-  //     try {
-  //       const currentWeeklyMatches = dummyData.data.filter(match => parseInt(selectedValue.slice(5)) === match.Week);
-  //       setMatches(currentWeeklyMatches)
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  //   getWeeklyMatches();
-  // }, [selectedValue])
-
-  //DEV-PROD ENV
 
   const {data : allWeeklyMatches} = useQuery({
     queryKey:['weeklyMatches'], 
@@ -42,12 +27,6 @@ const Weekly = () => {
     return allWeeklyMatches.filter((match: oneMatch) => match.Week === parseInt(selectedValue.slice(5)));
   }, [allWeeklyMatches, selectedValue]);
 
-
-
-  const {data: standings} = useQuery({
-    queryKey:['standings'],
-    queryFn: () => fetchStandings(),
-  })
 
   const {data} = useQuery({
     queryKey:['currentWeek'],

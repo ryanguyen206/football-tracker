@@ -18,7 +18,10 @@ export type standing = {
     Team: string,
     TeamName: string
     Wins: number,
-    Losses: number,
+    Losses: number, 
+    Conference:string,
+    Division: string
+    Name:string,
 }
 
 // /GET for all posts
