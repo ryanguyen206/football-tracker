@@ -1,11 +1,8 @@
 "use client"
 import { FC } from "react";
-import { oneMatch, standing, standings } from "@/weeklyMatches";
+import { oneMatch, standing} from "@/weeklyMatches";
 import { getPSTTime } from "@/helperFn/helper";
 import { useEffect, useState } from "react";
-import { dummyData } from "@/app/standings";
-import axios from "axios";
-
 
 type WeekMatchProps = {
     match: oneMatch
@@ -19,22 +16,7 @@ const OneMatch: FC<WeekMatchProps> = ({match, homeTeam, awayTeam, standings, wee
 
     const [currentHomeTeam, setHomeTeam] = useState<standing>()
     const [currentAwayTeam, setAwayTeam] = useState<standing>()
-
-  //   useEffect(() => {
-  //     async function getStandings(){
-  //         // dummyData.data.forEach((element: standing) => {
-  //         //     if (homeTeam === element.Team) {
-  //         //         setHomeTeam(element)
-  //         //     } else if (awayTeam === element.Team) 
-  //         //     {
-  //         //         setAwayTeam(element)
-  //         //     }
-  //         // }) 
-  //     }
-  //   getStandings();
-  // }, [])
-
-
+    
     useEffect(() => {
       if(standings && week)
       {
