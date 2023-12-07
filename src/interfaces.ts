@@ -62,3 +62,28 @@ export type finalTeamStats = {
     Offense: offense,
     Defense: defense
 }
+
+
+export type Player = {
+    Active: boolean
+    Age: number
+    College: string
+    Experience: number 
+    FantasyPosition: string
+    FirstName: string
+    Height: string
+    HeightFeet: number
+    HeightInches: number
+    LastName: string
+    Name: string
+    Number: number
+    PlayerID: number
+    Position: string
+    PositionCategory: string
+    Status:string
+    Team: string
+    TeamID: string
+    UsaTodayHeadshotNoBackgroundUrl: string
+    UsaTodayHeadshotUrl:  string
+    Weight: string
+}
