@@ -6,10 +6,10 @@ import useGetTeamStandings from '@/hooks/useGetTeamStandings';
 const SingleTeam = ({ params }: { params: { id: string } }) => {
   
   const [teamData, setTeamData] = useState<any>(null);
-  const [teamStandings, setTeamStandings] = useState<any>([])
   const {standings} = useGetTeamStandings()
 
   const foundTeam = standings?.find((aTeam: any) => aTeam.Team.toLowerCase() === params.id.toLowerCase());
+
   useEffect(() => {
     const test = async () => {
       const team : any = await fetchOneTeamStats({id : params.id})

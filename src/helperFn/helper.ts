@@ -27,9 +27,9 @@ export const fetchAllTeamStats = async () => {
 }
 
 export const fetchOneTeamStats = async ({id} : { id: string } ) => {
-  const response = await axios.get(`/api/watchlist`);
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
   const data =  response.data;
-  const specificTeam = data.filter((singleTeam : any ) => singleTeam.Name === id);
+  const specificTeam = data.filter((singleTeam : any ) => singleTeam.Team === id);
   return specificTeam;
 };
 
