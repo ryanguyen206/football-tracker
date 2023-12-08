@@ -1,26 +1,18 @@
 "use client"
 import React, {useEffect, useMemo, useState } from 'react'
 import WeekMatch from './OneMatch'
-import {Selection} from "@react-types/shared";
+import useGetCurrentWeek from '@/hooks/useGetCurrentWeek';
 import {Dropdown,DropdownTrigger,DropdownMenu,DropdownItem,Button} from "@nextui-org/react";
-import { useQuery } from 'react-query';
-import { fetchWeeklyMatches, fetchStandings, fetchCurrentWeek } from '@/helperFn/helper';
 import { oneMatch } from '@/interfaces';
 import useGetTeamStandings from '@/hooks/useGetTeamStandings';
+import useGetAllWeeklyMatches from '@/hooks/useGetAllWeeklyMatches';
 
 
 const Weekly = () => {
 
   const {standings} = useGetTeamStandings();
-  const [selected, setSelected] = useState<Selection>(new Set([]));
-  const selectedValue = useMemo(() => Array.from(selected).join(", ").replaceAll("_", " "), [selected],
-  );
-  const [weeks, setWeeks] = useState<number[]>([])
-
-  const {data : allWeeklyMatches} = useQuery({
-    queryKey:['weeklyMatches'], 
-    queryFn: () => fetchWeeklyMatches(),
-  })
+  const {weeks, selected, selectedValue, setSelected} =  useGetCurrentWeek()
+  const {allWeeklyMatches} = useGetAllWeeklyMatches() 
 
   const weeklyMatches = useMemo(() => {
     if (!allWeeklyMatches) return [];
@@ -28,21 +20,7 @@ const Weekly = () => {
   }, [allWeeklyMatches, selectedValue]);
 
 
-  const {data} = useQuery({
-    queryKey:['currentWeek'],
-    queryFn: () => fetchCurrentWeek(),
-    onSuccess: (data  ) => {
-        const temp = [];
-        for(let i=0; i<4; i++)
-        {
-          temp.push(data + i);
-        }
-        setWeeks(temp);
-        if (typeof data === 'number') {
-          setSelected(new Set([`Week ${data}`]));
-        }
-    }
-  })
+
 
   return (
     <div id="weeklyMatches" className="pb-20 text-center" data-aos="fade-up" data-aos-once="true">
@@ -72,7 +50,7 @@ const Weekly = () => {
     </Dropdown>
 
     <div className='flex flex-col gap-20 xl:grid xl:grid-cols-2'>
-        {weeklyMatches?.map((oneMatch, index) => (
+        {weeklyMatches?.map((oneMatch : oneMatch, index: number) => (
           <div key={index} className=''>
               <WeekMatch 
                 match = {oneMatch} 
