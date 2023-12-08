@@ -13,7 +13,7 @@ const vietnam = Be_Vietnam_Pro({
 })
 
 export const metadata: Metadata = {
-  title: 'Football',
+  title: 'Football Tracker',
   description: 'Know all you need about football',
 }
 
