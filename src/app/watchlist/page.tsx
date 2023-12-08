@@ -21,11 +21,16 @@ const Watchlist = () => {
 
   return (
     <div className='h-screen text-center'>
-      <h1 className='font-bold text-3xl mt-20 mb-20'>Your Watchlist</h1>
       {watchlist?.length === 0 ? (
-        <p className='text-3xl'>No teams on watchlist. Add some!</p>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <p className='text-3xl'>No teams on watchlist. Add some on the homepage!</p>
+        <Link className='text-black px-8 py-4 md:px-10 rounded-lg text-xl font-light bg-secondary' href='../'>
+          <button className='mt-10'>Go to teams</button>
+        </Link>
+        </div>
       ) : (
-        <div className='bg-squarebg md:w-3/4 p-6 px-10 m-auto'>
+        <div className='bg-squarebg md:w-7/12 p-6 px-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+          <h1 className='text-3xl'>Your Watchlist</h1>
           {watchlist?.map((singleTeam: any, index: number) => [
             <div key={singleTeam.Team} className='flex flex-col md:flex-row justify-between items-center my-10'>
               <p className='text-2xl mb-6'>{singleTeam}</p>
