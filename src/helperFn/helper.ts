@@ -39,7 +39,12 @@ export const fetchCurrentWeek = async () => {
 }
 
 export const getPlayersByTeam = async (teamName: string) => {
-  const response = await axios.get(` https://api.sportsdata.io/v3/nfl/scores/json/PlayersBasic/${teamName}?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/Players/${teamName}?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
   const filterByOffAndDef = response.data.filter((singlePlayer : Player) =>  singlePlayer.Status === 'Active')
   return filterByOffAndDef
+}
+
+export const getAllTeams = async () => {
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/TeamsBasic?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`)
+  return response.data
 }
