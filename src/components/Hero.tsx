@@ -18,7 +18,7 @@ const Hero = () => {
 
   return (
         <>
-        <div className='mt-32' data-aos="fade-right">
+        <div className='mt-48' data-aos="fade-right">
             <h1 className='text-3xl text-center font-bold tracking-wider leading-tight mb-4 sm:text-5xl xl:text-left' >WELCOME</h1>
             <hr className='mb-12 xl:w-1/4'></hr>
                 <p className='text-center text-xl mb-20 leading-relaxed font-light xl:mb-20 xl:text-left xl:w-5/12'>Our platform offers comprehensive insights, from weekly match-ups to in-depth team statistics, helping you make informed decisions and stay ahead of the competition.</p>
