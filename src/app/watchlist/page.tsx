@@ -29,7 +29,7 @@ const Watchlist = () => {
         </Link>
         </div>
       ) : (
-        <div className='bg-squarebg md:w-7/12 p-6 px-10 m-auto mt-20'>
+        <div className='bg-squarebg md:w-10/12 lg:w-7/12 p-6 px-10 m-auto mt-20'>
           <h1 className='text-3xl'>Your Watchlist</h1>
           {watchlist?.map((singleTeam: any, index: number) => [
             <div key={singleTeam.Team} className='flex flex-col md:flex-row justify-between items-center my-10'>

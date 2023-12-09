@@ -4,7 +4,7 @@ import { getAllTeams } from '@/helperFn/helper';
 
 const SingleTeam =  ({ params }: { params: { id: string } }) => {
   return (
-    <div className='mt-10 '>
+    <div className='mt-48 '>
       <TeamHeader teamName={params.id}/>
       <Players teamName = {params.id}/>
     </div> 
