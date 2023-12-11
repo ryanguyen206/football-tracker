@@ -17,8 +17,8 @@ const UserMenu: FC<UserMenuProps> = ({ isOpen, setIsOpen }) => {
   return (
     <>
       {isOpen && (
-        <div ref={menuRef} className="flex flex-col gap-4 border absolute bg-white p-4 rounded-md shadow-md">
-          <Link href="/" className="hover:cursor-pointer hover:bg-gray-100 p-2 rounded-md md:hidden" onClick={() => setIsOpen(false)}>
+        <div ref={menuRef} className="flex flex-col gap-4 border absolute left-1/2 transform -translate-x-1/2  bg-white p-4 rounded-md shadow-md">
+          <Link href="/" className="hover:cursor-pointer hover:bg-gray-100 p-2 rounded-md lg:hidden" onClick={() => setIsOpen(false)}>
             <div className='flex items-center'>
               <IoHomeOutline size={24} />
               <p className='pl-2 text-gray-800'>Home</p>
