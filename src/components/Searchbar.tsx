@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from '@nextui-org/react';
 import { finalTeamStats } from '@/interfaces';
-import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsQuery';
+import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsStatsQuery';
 import Link from 'next/link';
 import useClickOutside from '@/hooks/useClickOutside';
 

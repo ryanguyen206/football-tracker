@@ -6,7 +6,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import useAddOrRemoveTeamQuery from '@/hooks/useAddOrRemoveTeamQuery'
 import useGetUserWatchlist from '@/hooks/useGetUserWatchlist'
-import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsQuery'
+import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsStatsQuery'
 
 type TableStatsProps = {
     headers:string[]

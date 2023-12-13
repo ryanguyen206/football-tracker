@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import Link from 'next/link'
-import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsQuery';
+import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsStatsQuery';
 import useAddOrRemoveTeamQuery from '@/hooks/useAddOrRemoveTeamQuery'
 import useGetUserWatchlist from '@/hooks/useGetUserWatchlist';
 
