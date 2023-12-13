@@ -5,6 +5,7 @@ const nextConfig = {
     domains: [
       'lh3.googleusercontent.com',
       'upload.wikimedia.org',
+      's3-us-west-2.amazonaws.com'
     ],
     remotePatterns: [
       {

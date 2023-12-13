@@ -32,6 +32,9 @@ export default async function RootLayout({
           {children}
         </Providers>
         </AuthProvider>
+        <footer>
+          <p className='mb-5'>This website is created for educational learning purposes only. All data is accredited to SportsData.io</p>
+        </footer>
       </body>
     </html>
   )
