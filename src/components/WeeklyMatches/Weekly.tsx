@@ -6,6 +6,7 @@ import {Dropdown,DropdownTrigger,DropdownMenu,DropdownItem,Button} from "@nextui
 import { oneMatch } from '@/interfaces';
 import useGetTeamStandings from '@/hooks/useGetTeamStandings';
 import useGetAllWeeklyMatches from '@/hooks/useGetAllWeeklyMatches';
+import useFetchAllTeamsQuery from '@/hooks/useFetchAllTeamsQuery';
 
 
 const Weekly = () => {
@@ -13,6 +14,7 @@ const Weekly = () => {
   const {standings} = useGetTeamStandings();
   const {weeks, selected, selectedValue, setSelected} =  useGetCurrentWeek()
   const {allWeeklyMatches} = useGetAllWeeklyMatches() 
+  const {allTeams} = useFetchAllTeamsQuery()
 
   const weeklyMatches = useMemo(() => {
     if (!allWeeklyMatches) return [];
@@ -51,10 +53,10 @@ const Weekly = () => {
           <div key={index} className=''>
               <WeekMatch 
                 match = {oneMatch} 
-                week = {selectedValue}
                 standings = {standings}
                 homeTeam = {oneMatch.HomeTeam} 
-                awayTeam = {oneMatch.AwayTeam}/>
+                awayTeam = {oneMatch.AwayTeam}
+                allTeams= {allTeams}/>
           </div>))}
          
     </div>

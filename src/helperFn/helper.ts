@@ -16,6 +16,15 @@ export const fetchWeeklyMatches = async () => {
   };
 
 
+export const fetchUpcomingTeamMatches= async (teamName: string) => {
+  const response : weeklyMatches = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/SchedulesBasic/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+  const currentWeek = await fetchCurrentWeek()
+  const data = response.data.filter((oneMatch) => oneMatch.Week >= currentWeek && (oneMatch.AwayTeam === teamName || oneMatch.HomeTeam === teamName) )
+  return data
+  };
+
+
+
 export const fetchStandings = async () => {
     const response : standings = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/Standings/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
     return response.data
