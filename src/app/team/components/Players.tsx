@@ -15,19 +15,10 @@ const Players: FC<PlayerProps> = ({teamName}) => {
     const [selected, setSelected] = useState<Selection>(new Set(["Offense"]));
     const selectedValue = useMemo(() => Array.from(selected).join(", ").replaceAll("_", " "), [selected]);
     const tableHeaders = ['Headshot', 'Player','Pos', 'Exp', 'Wt', 'Ht']
-
-    useEffect(() => {
-      console.log(offense)
-    }, [offense])
-
-    useEffect(() => {
-        console.log(defense)
-      }, [defense])
     
-
   return (
     <div className='mt-20'>
-        <h3 className='text-2xl mb-20'>Players</h3>
+        <h3 className='text-5xl font-bold text-center mb-10'>Players</h3>
         <ButtonOffOrDef selected={selected} setSelected={setSelected} selectedValue={selectedValue} />
         {
           selectedValue === 'Offense' ? <PlayerTable players={offense} headers={tableHeaders} /> : <PlayerTable players={defense} headers={tableHeaders} />

@@ -19,9 +19,6 @@ const Weekly = () => {
     return allWeeklyMatches.filter((match: oneMatch) => match.Week === parseInt(selectedValue.slice(5)));
   }, [allWeeklyMatches, selectedValue]);
 
-
-
-
   return (
     <div id="weeklyMatches" className="pb-20 text-center" data-aos="fade-up" data-aos-once="true">
       <h1 className='text-5xl font-bold mb-10'>Matches</h1>

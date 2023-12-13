@@ -13,7 +13,7 @@ const ButtonOffOrDef: FC<ButtonOffOrDefProps> = ({selected, setSelected, selecte
 
 
   return (
-    <div id="teamStats" className='pb-20 text-center mt-28'>
+    <div id="teamStats" className='pb-20 text-center'>
     <Dropdown className='mb-20'>
       <DropdownTrigger>
         <Button 

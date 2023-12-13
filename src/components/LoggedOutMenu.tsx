@@ -27,11 +27,8 @@ const LoggedOutMenu = () => {
             {session ?  <button onClick={() => {signOut()}} className="list-none" >Sign Out</button> : <Link href='/sign-in' className="text-black" onClick={() => setIsOpen(false)}>Sign In</Link>}
            </div>
        </div>
-       }
-    
+       } 
     </>
- 
-
   );
 };
 

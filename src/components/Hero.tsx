@@ -6,7 +6,6 @@ import "aos/dist/aos.css";
 import Image from 'next/image'
 import { useEffect } from 'react';
 
-
 const Hero = () => {
   useEffect(() => {
     AOS.init({
@@ -50,11 +49,7 @@ const Hero = () => {
                   </div>
                 </div>
             </div>
-
           </>
-
-
   )
 }
-
 export default Hero
