@@ -89,5 +89,28 @@ export type Player = {
     HeightFeet: number,
     HeightInches: number,
     TeamID: number,
+}
 
+export type TeamBasicInfo = {
+Key: string,
+TeamID: 1,
+PlayerID: 1,
+City: string,
+Name: string,
+Conference: string,
+Division: string,
+FullName: string,
+StadiumID: number,
+ByeWeeK: number,
+GlobalTeamID: number,
+HeadCoach: string,
+PrimaryColor: string,
+SecondaryColor: string,
+TertiaryColor: string,
+QuaternaryColor: string,
+WikipediaLogoURL: string,
+WikipediaWordMarkURL: string,
+OffensiveCoordinator: string,
+DefensiveCoordinator: string,
+SpecialTeamsCoach: string
 }
