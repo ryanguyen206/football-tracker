@@ -1,12 +1,28 @@
-import Players from '../components/Players';
 import TeamHeader from '../components/TeamHeader';
-import { getAllTeams } from '@/helperFn/helper';
+import { fetchStandings, getAllTeams } from '@/helperFn/helper';
+import TeamSchedule from '../components/TeamSchedule';
+import React, { Suspense } from 'react';
+import PlayerTable from '../components/PlayerTable';
 
-const SingleTeam =  ({ params }: { params: { id: string } }) => {
+const SingleTeam =  async ({ params }: { params: { id: string } }) => {
+
+  const allTeams = await getAllTeams()
+  const allStandings = await fetchStandings()
+
   return (
     <div className='mt-48 '>
-      <TeamHeader teamName={params.id}/>
-      <Players teamName = {params.id}/>
+        <TeamHeader 
+          teamName={params.id}
+          allTeams={allTeams}
+          allStandings={allStandings} 
+        />
+        <TeamSchedule 
+          teamName={params.id}        
+          allTeams={allTeams}
+          allStandings={allStandings} 
+        />
+        <PlayerTable teamName={params.id}/>
+        
     </div> 
   );
   }
@@ -14,12 +30,4 @@ const SingleTeam =  ({ params }: { params: { id: string } }) => {
 export default SingleTeam;
 
 
-export async function generateStaticParams()
-{
-  const allTeams = await getAllTeams();
-  const filterOnlyTeams = allTeams.map((singleTeam : any) => singleTeam.Key)
-  return (
-    filterOnlyTeams.map((singleTeam : any) => {id: singleTeam})
-  )
 
-}
