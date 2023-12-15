@@ -26,7 +26,7 @@ const PlayerTable = async ({teamName} : {teamName: string}) => {
         </thead>
         <tbody>
           {players?.map((player : Player, index: number) => (
-            <tr key={index} className='text-center'>
+            <tr key={index} className='text-center hover:bg-slate-200 hover:cursor-pointer'>
               <td className='px-4 py-2 border-b'>
                 <div className='flex justify-center'>
                   <Image src={player.PhotoUrl} height={75} width={75} alt={`${player.Name} headshot`} />
