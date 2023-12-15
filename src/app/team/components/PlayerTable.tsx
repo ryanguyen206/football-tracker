@@ -11,15 +11,18 @@ const PlayerTable = async ({teamName} : {teamName: string}) => {
   const players =  await getPlayersByTeam(teamName)
 
   return (
-    <div className='border-spacing'>
+    <div className=''>
       <h3 className='text-5xl font-bold text-center mb-10'>Active Roster</h3>
-      <table className="min-w-full border border-gray-300">
+      <table className="w-full text-center m-auto border border-gray-300">
         <thead className="bg-gray-200">
           <tr>
-            {headers.map((header : string, index: number) => (
-              <th key={index} className="border px-4 py-2">{header}</th>
-            ))}
-          </tr>
+            <th>Headshot</th>
+            <th>Player</th>
+            <th>Pos</th>
+            <th>Exp</th>
+            <th className='hidden md:table-cell'>Wt</th>
+            <th className='hidden md:table-cell'>Ht</th>      
+       </tr>
         </thead>
         <tbody>
           {players?.map((player : Player, index: number) => (
@@ -32,8 +35,8 @@ const PlayerTable = async ({teamName} : {teamName: string}) => {
               <td className='px-4 py-2 border-b'>{player.Name}</td>
               <td className='px-4 py-2 border-b'>{player.Position}</td>
               <td className='px-4 py-2 border-b'>{player.Experience}</td>
-              <td className='px-4 py-2 border-b'>{player.Weight}</td>
-              <td className='px-4 py-2 border-b'>{player.Height}</td>
+              <td className='hidden px-4 py-2 border-b md:table-cell'>{player.Weight}</td>
+              <td className='hidden px-4 py-2 border-b md:table-cell'>{player.Height}</td>
             </tr>
           ))}
         </tbody>
