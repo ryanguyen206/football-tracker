@@ -15,6 +15,11 @@ const vietnam = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   title: 'Football Tracker',
   description: 'Know all you need about football',
+  icons:{
+    apple:'/football_icon.png',
+    icon:'/favicon.ico'
+  }
+
 }
 
 export default async function RootLayout({
