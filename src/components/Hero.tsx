@@ -35,15 +35,15 @@ const Hero = () => {
               <div className='my-40 sm:my-64' data-aos="fade-up" data-aos-once='true'>
                 <h2 className='text-center font-bold text-5xl mb-28'>Features</h2>
                 <div className='flex justify-evenly gap-10 flex-col  xl:flex-row' data-aos="fade-up">
-                  <div className='flex-1 bg-squarebg py-14 '>
+                  <div className='flex-1 bg-squarebg py-14 shadow-md rounded-md'>
                     <h3 className='text-center text-3xl mb-6'>Watchlist</h3>
                     <p className='px-4 text-center sm:px-10 sm:tracking-wide leading-8 sm:text-center '>Transform the way you engage with football by curating your personalized watchlist, where you can effortlessly track your favorite teams and players </p>
                   </div>
-                  <div className='bg-squarebg flex-1 py-14 '>
+                  <div className='bg-squarebg flex-1 py-14 shadow-md rounded-md'>
                     <h3 className='text-center text-3xl mb-6 ' >Weekly Matches</h3>
                     <p className='px-4 text-center sm:px-10 sm:tracking-wide leading-8 sm:text-center'>Experience the thrill of every match with our dynamic weekly schedules feature, ensuring you never miss a kickoff or exciting game moment  </p>
                   </div>
-                  <div className='bg-squarebg flex-1 py-14 '>
+                  <div className='bg-squarebg flex-1 py-14 shadow-md rounded-md'>
                     <h3 className='text-center text-3xl mb-6'>Team Stats</h3>
                     <p className='px-4 text-center sm:px-10 sm:tracking-wide leading-8 sm:text-center'>Elevate your team spirit with team stats at your fingertips, empowering you with insights into player performances, standings, and strategic trends </p>
                   </div>
