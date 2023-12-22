@@ -8,10 +8,12 @@ interface GameLogsProps {
 
 const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
     const data : PlayerGameLogs[] = await fetchPlayerGameLogs(playerId)
+    console.log(data)
 
     const renderColumns = () => {
       switch (data[0].Position) {
-        case 'WR' || 'RB':
+        case 'WR':
+        case 'RB':
           return (
             <>
               <th className='py-4'>Week</th>
