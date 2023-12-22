@@ -1,6 +1,7 @@
 import React, {FC} from 'react'
 import Image from 'next/image'
 import { Player, TeamBasicInfo } from '@/interfaces'
+import Link from 'next/link'
 
 interface PlayerCardProps {
     basicTeamInfo : TeamBasicInfo | undefined
@@ -11,7 +12,9 @@ const PlayerCard: FC<PlayerCardProps> = ({basicTeamInfo, basicPlayerDetails}) =>
   return (
     <div className='border w-full sm:w-2/3 md:w-1/2 lg:w-1/3 relative  m-auto text-center shadow-md rounded-md pb-10 hover:shadow-xl'>
     <div className='relative '>
-      <Image className='absolute  ' src={basicTeamInfo?.WikipediaLogoURL || ''} alt={`${basicTeamInfo?.Name} Logo`}  height={100} width={100} />
+      <Link href={`/team/${basicTeamInfo?.Key}`}>
+        <Image className='absolute  ' src={basicTeamInfo?.WikipediaLogoURL || ''} alt={`${basicTeamInfo?.Name} Logo`}  height={100} width={100} />
+      </Link>
     </div>
     <div className='h-32' style={{backgroundImage: `linear-gradient(to right, #${basicTeamInfo?.PrimaryColor}, #${basicTeamInfo?.SecondaryColor})` }} />
     <div className='relative'>

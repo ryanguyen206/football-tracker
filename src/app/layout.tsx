@@ -38,7 +38,7 @@ export default async function RootLayout({
         </Providers>
         </AuthProvider>
         <footer>
-          <p className='sticky top-[100vh] '>This website is created for educational learning purposes only. All data is accredited to SportsData.io</p>
+          <p className='sticky top-[100vh] '>This website is created for educational learning purposes only. All data is accredited to SportsData.io. Data is not accurate due free trial</p>
         </footer>
       </body>
     </html>

@@ -207,10 +207,14 @@ PuntTouchbacks: number,
 PuntInside20: number,
 PuntNetAverage: number,
 PuntLong: number,
+Safeties:number
+PuntReturnFairCatches: number,
 ShortName: string,
 FieldGoalsMade0to19: number,
 FieldGoalsMade20to29: number,
 FieldGoalsMade30to39: number,
 FieldGoalsMade40to49: number,
 FieldGoalsMade50Plus: number,
+ExtraPointsAttempted: number
+
 }
