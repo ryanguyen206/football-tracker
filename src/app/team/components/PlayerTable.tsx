@@ -16,8 +16,8 @@ const PlayerTable = async ({teamName} : {teamName: string}) => {
       <h3 className='text-5xl font-bold text-center mb-10'>Active Roster</h3>
       <table className="w-full text-center m-auto border border-gray-300">
         <thead className="bg-gray-200">
-          <tr>
-            <th>Headshot</th>
+          <tr >
+            <th className='py-4'>Headshot</th>
             <th>Player</th>
             <th>Pos</th>
             <th>Exp</th>

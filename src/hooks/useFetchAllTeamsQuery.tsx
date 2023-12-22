@@ -6,9 +6,6 @@ const useFetchAllTeamsQuery = () => {
     const {data: allTeams} = useQuery({
         queryKey:['allTeams'],
         queryFn: () => getAllTeams(),
-        onSuccess: () => {
-            console.log(' me hieter')
-        }
       })
 
     return {allTeams}
