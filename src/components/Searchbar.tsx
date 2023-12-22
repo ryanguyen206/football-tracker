@@ -45,7 +45,7 @@ const Searchbar = () => {
       )}
 
       {isSearchbarOpen && filteredItems && filteredItems.length > 0 && (
-        <div className="absolute top-14 w-full border rounded-xl flex flex-col shadow-lg bg-white">
+        <div className="absolute top-14 w-full border rounded-xl flex flex-col shadow-lg bg-white z-10">
           {filteredItems?.map((team) => (
             <Link href={`/team/${team.Team}`} key={team.TeamName}>
               <div className="p-4 hover:cursor-pointer hover:bg-slate-200">

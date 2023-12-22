@@ -93,15 +93,15 @@ export type Player = {
 
 export type TeamBasicInfo = {
 Key: string,
-TeamID: 1,
-PlayerID: 1,
+TeamID: number,
+PlayerID: number,
 City: string,
 Name: string,
 Conference: string,
 Division: string,
 FullName: string,
 StadiumID: number,
-ByeWeeK: number,
+ByeWeek: number,
 GlobalTeamID: number,
 HeadCoach: string,
 PrimaryColor: string,
@@ -111,6 +111,19 @@ QuaternaryColor: string,
 WikipediaLogoURL: string,
 WikipediaWordMarkURL: string,
 OffensiveCoordinator: string,
-DefensiveCoordinator: string,
+DefensiveCoordinator: string | null,
 SpecialTeamsCoach: string
+}
+
+export type specificPlayerStats = {
+    PlayerID: number,
+    Team: string,
+    Number: number,
+    PositionCategory: string,
+    PassingAttempts: number,
+    PassingCompletions: number,
+    PassingYards:number,
+    PassingTouchdowns:number,
+    RushingYards:number,
+    RushingTouchdowns: number, 
 }

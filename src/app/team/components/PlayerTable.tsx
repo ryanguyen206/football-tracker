@@ -2,12 +2,13 @@ import React, { FC } from 'react';
 import { Player } from '@/interfaces';
 import Image from 'next/image';
 import { getPlayersByTeam } from '@/helperFn/helper';
+import Link from 'next/link';
 
 
 
 const PlayerTable = async ({teamName} : {teamName: string}) => {
 
-  const headers : string[] = ['Headshot', 'Player','Pos', 'Exp', 'Wt', 'Ht']
+
   const players =  await getPlayersByTeam(teamName)
 
   return (
@@ -25,19 +26,19 @@ const PlayerTable = async ({teamName} : {teamName: string}) => {
        </tr>
         </thead>
         <tbody>
-          {players?.map((player : Player, index: number) => (
-            <tr key={index} className='text-center hover:bg-slate-200 hover:cursor-pointer'>
-              <td className='px-4 py-2 border-b'>
-                <div className='flex justify-center'>
-                  <Image src={player.PhotoUrl} height={75} width={75} alt={`${player.Name} headshot`} />
-                </div>
-              </td>
-              <td className='px-4 py-2 border-b'>{player.Name}</td>
-              <td className='px-4 py-2 border-b'>{player.Position}</td>
-              <td className='px-4 py-2 border-b'>{player.Experience}</td>
-              <td className='hidden px-4 py-2 border-b md:table-cell'>{player.Weight}</td>
-              <td className='hidden px-4 py-2 border-b md:table-cell'>{player.Height}</td>
-            </tr>
+          {players?.map((player : Player) => (         
+            <tr className='text-center hover:bg-slate-200' key={player.PlayerID}>      
+                <td className='px-4 py-2 border-b'>
+                  <div className='flex justify-center hover:cursor-pointer'>
+                    <Link href={`/team/${teamName}/${player.PlayerID}`}><Image src={player.PhotoUrl} height={75} width={75} alt={`${player.Name} headshot`} /></Link>
+                  </div>
+                </td>
+                <td className='px-4 py-2 border-b hover:cursor-pointer'><Link href={`/team/${teamName}/${player.PlayerID}`}>{player.Name}</Link></td>
+                <td className='px-4 py-2 border-b'>{player.Position}</td>
+                <td className='px-4 py-2 border-b'>{player.Experience}</td>
+                <td className='hidden px-4 py-2 border-b md:table-cell'>{player.Weight}</td>
+                <td className='hidden px-4 py-2 border-b md:table-cell'>{player.Height}</td>                     
+            </tr>   
           ))}
         </tbody>
       </table>

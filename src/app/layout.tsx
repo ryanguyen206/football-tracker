@@ -30,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${vietnam.className} text-black w-9/12 m-auto h-full`}>
+      <body className={`${vietnam.className} text-black w-9/12 m-auto min-h-screen`}>
         <AuthProvider>
         <Providers>
           <Navbar/>
@@ -38,7 +38,7 @@ export default async function RootLayout({
         </Providers>
         </AuthProvider>
         <footer>
-          <p className='mb-5'>This website is created for educational learning purposes only. All data is accredited to SportsData.io</p>
+          <p className='sticky top-[100vh] '>This website is created for educational learning purposes only. All data is accredited to SportsData.io</p>
         </footer>
       </body>
     </html>
