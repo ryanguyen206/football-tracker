@@ -80,3 +80,11 @@ export const fetchPlayerStats = async (playerId: string) => {
   }
 
 }
+
+export const fetchPlayerGameLogs = async (playerId:string) => {
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsBySeason/2023/${playerId}/all?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`)
+  console.log(response)
+  return response.data
+
+
+}

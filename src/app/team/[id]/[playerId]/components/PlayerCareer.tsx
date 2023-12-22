@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {FC} from 'react'
 
-const PlayerCareer = () => {
+interface PlayerSeasonStatsProps {
+  seasonGames : any
+}
+
+const PlayerCareer : FC<PlayerSeasonStatsProps> = () => {
   return (
     <div>
         <h2>Career</h2>

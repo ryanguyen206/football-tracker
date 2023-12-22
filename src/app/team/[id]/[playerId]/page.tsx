@@ -5,6 +5,7 @@ import Image from 'next/image'
 import PlayerCard from './components/PlayerCard'
 import { dummyPlayer as filteredPlayer, dummyTeam as teamLogo, specificStats } from './teamData'
 import PlayerCareer from './components/PlayerCareer'
+import GameLogs from './components/GameLogs'
 
 
 const playerStats = async ({params}: {params : {playerId: string}}) => { 
@@ -27,9 +28,11 @@ const playerStats = async ({params}: {params : {playerId: string}}) => {
            <PlayerCard 
             filteredPlayer={filteredPlayer}
             teamLogo={teamLogo}
-            specificStats={specificStats}
+         
           />
-          <PlayerCareer/>
+          <GameLogs
+            playerId={params.playerId}
+          />
           
         </>
        

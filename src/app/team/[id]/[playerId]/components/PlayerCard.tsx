@@ -5,23 +5,20 @@ import { Player, TeamBasicInfo } from '@/interfaces'
 interface PlayerCardProps {
     teamLogo : TeamBasicInfo
     filteredPlayer : Player
-    specificStats: any
-
-
 }
 
-const PlayerCard: FC<PlayerCardProps> = ({teamLogo, filteredPlayer, specificStats}) => {
+const PlayerCard: FC<PlayerCardProps> = ({teamLogo, filteredPlayer}) => {
   return (
-    <div className='border w-1/4 relative  m-auto text-center shadow-md rounded-md'>
+    <div className='border w-1/4 relative  m-auto text-center shadow-md rounded-md pb-10'>
     <div className='relative '>
-      <Image className='absolute ' src={teamLogo?.WikipediaLogoURL || ''} alt={`${teamLogo?.Name} Logo`}  height={100} width={100} />
+      <Image className='absolute -left-1/4 ' src={teamLogo?.WikipediaLogoURL || ''} alt={`${teamLogo?.Name} Logo`}  height={100} width={100} />
     </div>
-    <div style={{ height: '6em', backgroundImage: `linear-gradient(to right, #${teamLogo?.PrimaryColor}, #${teamLogo?.SecondaryColor})` }} />
+    <div className='h-32' style={{backgroundImage: `linear-gradient(to right, #${teamLogo?.PrimaryColor}, #${teamLogo?.SecondaryColor})` }} />
     <div className='relative'>
-      <Image className='absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' src={filteredPlayer.PhotoUrl} height={100} width={100} alt={`${filteredPlayer.Name} headshot`} />
+      <Image className='absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-3/4' src={filteredPlayer.PhotoUrl} height={100} width={100} alt={`${filteredPlayer.Name} headshot`} />
     </div>
 
-    <div className='mt-20'>
+    <div className='mt-12'>
       <h1 className='font-bold '>{filteredPlayer.Name}</h1>
       <div className='grid grid-cols-2 mt-6 gap-y-6'>
         <div>
@@ -48,12 +45,8 @@ const PlayerCard: FC<PlayerCardProps> = ({teamLogo, filteredPlayer, specificStat
           <p className='font-semibold'>{filteredPlayer.Height}</p>
           <p className='text-sm font-thin '>Height</p>
         </div>
-
-
       </div>
-
     </div>
-
 </div> 
   )
 }
