@@ -13,7 +13,7 @@ const TeamStats = () => {
   
   return (
     <div id="teamStats" className='pb-20 text-center mt-28'>
-      <h2 className='text-5xl font-bold mb-10'>Stats</h2>
+      <h2 className='text-5xl font-bold mb-10 dark:text-white'>Stats</h2>
       <ButtonOffOrDef selected={selected} setSelected={setSelected} selectedValue={selectedValue} />
         {selectedValue === 'Offense' ? 
             <TableStats 

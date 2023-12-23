@@ -23,7 +23,7 @@ const OneMatch: FC<WeekMatchProps> = ({match, homeTeam, awayTeam, standings, all
     const homeLogo = allTeams?.find((team : TeamBasicInfo) => (team.Key === homeTeam))
 
   return (
-    <div className="text-center bg-hsla-211-36-46 py-6 rounded-lg transition-transform hover:scale-105 border bg-squarebg">
+    <div className="text-center bg-hsla-211-36-46 py-6 rounded-lg transition-transform hover:scale-105 border dark:border-none bg-squarebg dark:bg-slate-800 dark:text-slate-400 ">
       <div className='flex text-center text-2xl items-center gap-6 justify-center'>
       <div className="relative">
           <div className="w-20 h-10 relative">

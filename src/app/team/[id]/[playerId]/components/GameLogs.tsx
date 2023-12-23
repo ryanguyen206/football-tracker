@@ -16,28 +16,28 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
         case 'TE':
           return (
             <>
-              <th>REC</th>
-              <th>YDS</th>
-              <th>AVG</th>
+              <th >REC</th>
+              <th >YDS</th>
+              <th >AVG</th>
               <th>TD</th>
-              <th>ATT</th>
-              <th>YDS</th>
-              <th>AVG</th>
-              <th>TD</th>
+              <th >ATT</th>
+              <th >YDS</th>
+              <th >AVG</th>
+              <th >TD</th>
             </>
           );
         case 'QB':
           return (
             <>
-              <th>COMP</th>
-              <th>ATT</th>
+              <th >COMP</th>
+              <th >ATT</th>
               <th>YDS</th>
               <th>AVG</th>
               <th>TD</th>
               <th>INT</th>
               <th>SACK</th>
               <th>RATE</th>
-            </>
+              </>
           );
         case 'DL':
         case 'CB':
@@ -45,13 +45,14 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
         case 'DB':
         case 'LB':
         case 'S':
+        case 'LS':
         case 'DT':
         case 'FS':
         case 'SS':
         case 'OLB':
         case 'NT':
           return (
-            <>
+            <div className='dark:text-slate-400'>
             <th>TKL</th>
             <th>AST</th>
             <th>SOLO</th>
@@ -59,29 +60,33 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
             <th>INT</th>
             <th>SFTY</th>
             <th>FF</th>
-            </>
+            </div>
           )
         case 'P':
           return (
-            <>
+    
+          <div className='dark:text-slate-400'>
               <th>PUNTS</th>
               <th>YDS</th>
               <th>LNG</th>
               <th>AVG</th>
               <th>FC</th>
               <th>In 20</th>
-            </>
+          </div>
+      
           )
         case 'K':
           return (
-            <>
+    
+          <div className='dark:text-slate-400'>
               <th>LNG</th>
               <th>FGA</th>
               <th>FGM</th>
               <th>PCT</th>
               <th>XPA</th>
               <th>XPM</th>
-            </>
+          </div>
+    
           )
        
         default:
@@ -98,8 +103,8 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
           return (
             <>
           {data?.map((weeklyGame : PlayerGameLogs) => (         
-            <tr className='text-center hover:bg-slate-200 ' key={weeklyGame.GameKey}>   
-              <td className='py-4 font-semibold'>{weeklyGame.Week}</td>
+            <tr className='text-center hover:bg-slate-200 dark:hover:bg-slate-600 dark:text-slate-400' key={weeklyGame.GameKey}>   
+              <td className='py-6 font-semibold'>{weeklyGame.Week}</td>
               <td className='py-4 font-light'>{weeklyGame.HomeOrAway === 'AWAY' ? <>@{weeklyGame.Opponent}</> : weeklyGame.Opponent}</td>
               <td className='py-4 font-light'>{weeklyGame.Receptions}</td>
               <td className='py-4 font-light'>{weeklyGame.ReceivingYards}</td>
@@ -118,7 +123,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
           return (
             <>
         {data?.map((weeklyGame : PlayerGameLogs) => (         
-            <tr className='text-center hover:bg-slate-200 ' key={weeklyGame.GameKey}>   
+            <tr className='text-center hover:bg-slate-200  dark:hover:bg-slate-600 dark:text-slate-400' key={weeklyGame.GameKey}>   
               <td className='py-4 font-semibold'>{weeklyGame.Week}</td>
               <td className='py-4 font-light'>{weeklyGame.HomeOrAway === 'AWAY' ? <>@{weeklyGame.Opponent}</> : weeklyGame.Opponent}</td>
               <td className='py-4 font-light'>{weeklyGame.PassingCompletions}</td>
@@ -144,10 +149,11 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
           case 'SS':
           case 'OLB':
           case 'NT':
+          case 'LS':
             return (
               <>
             {data?.map((weeklyGame : PlayerGameLogs) => (         
-              <tr className='text-center hover:bg-slate-200 ' key={weeklyGame.GameKey}>   
+              <tr className='text-center hover:bg-slate-200  dark:hover:bg-slate-600 dark:text-slate-400' key={weeklyGame.GameKey}>   
                 <td className='py-4 font-semibold'>{weeklyGame.Week}</td>
                 <td className='py-4 font-light'>{weeklyGame.HomeOrAway === 'AWAY' ? <>@{weeklyGame.Opponent}</> : weeklyGame.Opponent}</td>
                 <td className='py-4 font-light'>{weeklyGame.Tackles}</td>
@@ -164,7 +170,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
             return (
               <>
               {data?.map((weeklyGame : PlayerGameLogs) => (         
-                <tr className='text-center hover:bg-slate-200 ' key={weeklyGame.GameKey}>   
+                <tr className='text-center hover:bg-slate-200 dark:hover:bg-slate-600 dark:text-slate-400 ' key={weeklyGame.GameKey}>   
                   <td className='py-4 font-semibold'>{weeklyGame.Week}</td>
                   <td className='py-4 font-light'>{weeklyGame.HomeOrAway === 'AWAY' ? <>@{weeklyGame.Opponent}</> : weeklyGame.Opponent}</td>
                   <td className='py-4 font-light'>{weeklyGame.Punts}</td>
@@ -181,7 +187,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
             return (
               <>
                     {data?.map((weeklyGame : PlayerGameLogs) => (         
-                <tr className='text-center hover:bg-slate-200 ' key={weeklyGame.GameKey}>   
+                <tr className='text-center hover:bg-slate-200 dark:hover:bg-slate-600 dark:text-slate-400 ' key={weeklyGame.GameKey}>   
                   <td className='py-4 font-semibold'>{weeklyGame.Week}</td>
                   <td className='py-4 font-light'>{weeklyGame.HomeOrAway === 'AWAY' ? <>@{weeklyGame.Opponent}</> : weeklyGame.Opponent}</td>
                   <td className='py-4 font-light'>{weeklyGame.FieldGoalsLongestMade}</td>
@@ -201,7 +207,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
             return (
               <>
                  {data?.map((weeklyGame : PlayerGameLogs) => (         
-                <tr className='text-center hover:bg-slate-200 ' key={weeklyGame.GameKey}>   
+                <tr className='text-center hover:bg-slate-200 dark:hover:bg-slate-600 dark:text-slate-400 ' key={weeklyGame.GameKey}>   
                   <td className='py-4 font-semibold'>{weeklyGame.Week}</td>
                   <td className='py-4 font-light'>{weeklyGame.HomeOrAway === 'AWAY' ? <>@{weeklyGame.Opponent}</> : weeklyGame.Opponent}</td>  
                 </tr> 
@@ -216,19 +222,16 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
     
   return (
     <div className='mt-20 w-full'>
-        <table className="w-full text-center m-auto border border-gray-300">
-        <thead className="bg-gray-200">
+        <table className="w-full text-center m-auto border border-gray-300 dark:border-gray-600">
+        <thead className="bg-gray-200 dark:bg-slate-900 border-b dark:border-slate-600 dark:text-slate-400">
           <tr>   
-              <th className='py-4'>Week</th>
+              <th className='py-6'>Week</th>
               <th>Opp</th>  
               {renderColumns()}           
           </tr>
         </thead>
         <tbody>
-              <tr>
-
-              </tr>
-              {renderRowData()}
+            {renderRowData()}
         </tbody>
       </table>
       

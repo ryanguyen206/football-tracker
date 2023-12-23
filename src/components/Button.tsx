@@ -29,7 +29,7 @@ const ButtonOffOrDef: FC<ButtonOffOrDefProps> = ({selected, setSelected, selecte
         selectionMode="single"
         selectedKeys={selected}
         onSelectionChange={setSelected}
-        className='text-black'
+        className='text-black dark:text-white'
       >
         <DropdownItem key="Offense">Offense</DropdownItem>
         <DropdownItem key="Defense">Defense</DropdownItem>

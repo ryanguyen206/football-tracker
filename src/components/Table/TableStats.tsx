@@ -71,33 +71,33 @@ const TableStats : FC<TableStatsProps> = ({which, headers}) => {
       
     return (
     <div data-aos='fade-up'>
-           <table className="table-auto w-full text-center">
-            <thead className="border-2 bg-squarebg">
-                <tr className=''>
+           <table className="table-auto w-full text-center dark:text-white">
+            <thead className=" bg-squarebg dark:bg-slate-800">
+                <tr className='py-6'>
                     {headers.map(header => (
-                        <th className='text-md py-4 hover:cursor-pointer md:text-2xl font-bold' onClick={() => handleSortByAscOrDesc(header)} key={header}>
+                        <th className='text-md py-8 border-b hover:cursor-pointer md:text-xl font-bold' onClick={() => handleSortByAscOrDesc(header)} key={header}>
                             {header}
                         </th>
                     ))}
                     {session &&     
-                    <th className='text-md py-4 hover:cursor-pointer md:text-2xl font-bold'>
+                    <th className='border-b text-md py-4 hover:cursor-pointer md:text-xl font-bold'>
                       Add Team
                     </th>}
                   
                 </tr>       
             </thead>
-            <tbody className='border w-full '>
+            <tbody className=' w-full '>
                 {allTeams?.map((oneTeam : finalTeamStats) => (
-                    <tr className="border-b bg-squarebg" key={oneTeam.Team}>
-                        <td className='text-md lg:text-2xl'> <Link href={`/team/${oneTeam.Team}`}>{oneTeam.Team}</Link></td>
+                    <tr className="py-4 bg-squarebg dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700" key={oneTeam.Team}>
+                        <td className='text-md lg:text-2xl dark:text-slate-400 font-semibold hover:cursor-pointer '> <Link href={`/team/${oneTeam.Team}`}>{oneTeam.Team}</Link></td>
                         {which === 'offense' ?
                              Object.entries(oneTeam.Offense).map(([stat,value], index) => (
-                                <td className='py-4 text-md lg:text-2xl'key={stat}>{value}</td>)) : 
+                                <td className='py-8 text-md lg:text-xl dark:text-slate-400 font-semibold'key={stat}>{value}</td>)) : 
                             Object.entries(oneTeam.Defense).map(([stat,value]) => (
-                                <td  className='py-4 text-md lg:text-2xl' key={stat}>{value}</td>))
+                                <td  className='py-8 text-md lg:text-xl dark:text-slate-400 font-semi-bold' key={stat}>{value}</td>))
                         }
                         {session &&   <td>
-                          {watchlist?.includes(oneTeam.Team) ? <Button className='mt-2 bg-secondary' onClick={() => removeTeamMutation.mutate({team:oneTeam.Team, userId:session?.user.id})}>Remove</Button>: <Button className='mt-2 bg-primary' onClick={() => addTeamMutation.mutate({team: oneTeam.Team, userId:session?.user.id})}>Add</Button>}
+                          {watchlist?.includes(oneTeam.Team) ? <Button className='mt-2 bg-secondary dark:text-black' onClick={() => removeTeamMutation.mutate({team:oneTeam.Team, userId:session?.user.id})}>Remove</Button>: <Button className='mt-2 bg-primary dark:text-black' onClick={() => addTeamMutation.mutate({team: oneTeam.Team, userId:session?.user.id})}>Add</Button>}
                         </td> }
                     </tr>
                 ))}

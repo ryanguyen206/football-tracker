@@ -22,9 +22,9 @@ const TeamHeader: FC<TeamHeaderProps> = async ({teamName, allTeams, allStandings
               <Image src={teamLogo?.WikipediaLogoURL || ''} alt={`${teamLogo?.Name} Logo`} fill />
           </div> 
      
-             <h1 className='text-black text-3xl text-center mb-6'>{team?.Name} <span className='text-xl mb-2'>({team?.Wins} - {team?.Losses})</span></h1>
+             <h1 className='text-black text-3xl text-center mb-6 dark:text-white'>{team?.Name} <span className='text-xl mb-2'>({team?.Wins} - {team?.Losses})</span></h1>
             <div className='flex justify-center flex-col items-center'>
-              <p className='text-2xl mb-32'>{team?.Conference} &#x2022; {team?.Division}</p>
+              <p className='text-2xl mb-32 dark:text-slate-400'>{team?.Conference} &#x2022; {team?.Division}</p>
             </div> 
         </div>
     </div>

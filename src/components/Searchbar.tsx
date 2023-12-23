@@ -45,10 +45,10 @@ const Searchbar = () => {
       )}
 
       {isSearchbarOpen && filteredItems && filteredItems.length > 0 && (
-        <div className="absolute top-14 w-full border rounded-xl flex flex-col shadow-lg bg-white z-10">
+        <div className="absolute top-14 w-full border dark:border-slate-600 rounded-xl flex flex-col shadow-lg bg-white dark:bg-slate-800 z-10">
           {filteredItems?.map((team) => (
             <Link href={`/team/${team.Team}`} key={team.TeamName}>
-              <div className="p-4 hover:cursor-pointer hover:bg-slate-200">
+              <div className="p-4 hover:cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700">
                 <p className="font-semibold">{team.Team}</p>
                 <p className="font-medium">{team.TeamName}</p>
               </div>

@@ -29,8 +29,13 @@ export default async function RootLayout({
 }) {
 
   return (
-    <html lang="en">
-      <body className={`${vietnam.className} text-black w-9/12 m-auto min-h-screen`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${vietnam.className}`}>
+        <main className='flex flex-col min-h-screen text-black dark:bg-slate-900 dark:min-w-full dark:container'>
+          <div className='container mx-auto px-12 py-4'>
+
+     
+
         <AuthProvider>
         <Providers>
           <Navbar/>
@@ -38,8 +43,10 @@ export default async function RootLayout({
         </Providers>
         </AuthProvider>
         <footer>
-          <p className='sticky top-[100vh] '>This website is created for educational learning purposes only. All data is accredited to SportsData.io. Data is not accurate due free trial</p>
+          <p className='sticky top-[100vh] dark:text-slate-400 '>This website is created for educational learning purposes only. All data is accredited to SportsData.io. Data is not accurate due free trial</p>
         </footer>
+        </div>
+        </main>
       </body>
     </html>
   )

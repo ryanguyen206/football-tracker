@@ -23,7 +23,7 @@ const Weekly = () => {
 
   return (
     <div id="weeklyMatches" className="pb-20 text-center" data-aos="fade-up" data-aos-once="true">
-      <h1 className='text-5xl font-bold mb-10'>Matches</h1>
+      <h1 className='text-5xl font-bold mb-10 dark:text-white'>Matches</h1>
       <Dropdown>
       <DropdownTrigger>
         <Button 
@@ -40,7 +40,7 @@ const Weekly = () => {
         selectionMode="single"
         selectedKeys={selected}
         onSelectionChange={setSelected}
-        className='text-black'
+        className='text-black dark:text-white'
       >
         {weeks?.map((week : number)  => (
             <DropdownItem key={`Week ${week}`}>Week {week}</DropdownItem>
