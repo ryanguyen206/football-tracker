@@ -52,7 +52,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
         case 'OLB':
         case 'NT':
           return (
-            <div className='dark:text-slate-400'>
+            <>
             <th>TKL</th>
             <th>AST</th>
             <th>SOLO</th>
@@ -60,32 +60,32 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
             <th>INT</th>
             <th>SFTY</th>
             <th>FF</th>
-            </div>
+            </>
           )
         case 'P':
           return (
     
-          <div className='dark:text-slate-400'>
+          <>
               <th>PUNTS</th>
               <th>YDS</th>
               <th>LNG</th>
               <th>AVG</th>
               <th>FC</th>
               <th>In 20</th>
-          </div>
+          </>
       
           )
         case 'K':
           return (
     
-          <div className='dark:text-slate-400'>
+          <>
               <th>LNG</th>
               <th>FGA</th>
               <th>FGM</th>
               <th>PCT</th>
               <th>XPA</th>
               <th>XPM</th>
-          </div>
+          </>
     
           )
        
