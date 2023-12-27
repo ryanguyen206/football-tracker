@@ -23,10 +23,10 @@ const Watchlist = () => {
     <div className='h-screen text-center'>
       {watchlist?.length === 0 ? (
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-        <p className='text-3xl'>No teams on watchlist. Add some on the homepage!</p>
-        <Link className='text-black px-8 py-4 md:px-10 rounded-lg text-xl font-light bg-secondary' href='../'>
-          <button className='mt-10'>Go to teams</button>
-        </Link>
+        <p className='text-3xl dark:text-slate-400 mb-10'>No teams on watchlist. Add some on the homepage!</p>
+        <div className='transition-transform duration-300 cursor-pointer hover:transform hover:-translate-y-1'> 
+          <Link href="../" className='px-8 py-4 md:px-10 rounded-lg text-xl font-light  bg-secondary dark:text-black'>Go to Teams</Link>
+        </div> 
         </div>
       ) : (
         <div className='bg-squarebg md:w-10/12 lg:w-7/12 p-6 px-10 m-auto mt-20 dark:bg-slate-700'>
@@ -35,9 +35,9 @@ const Watchlist = () => {
             <div key={singleTeam.Team} className='flex flex-col md:flex-row justify-between items-center my-10'>
               <p className='text-2xl mb-6 dark:text-slate-400'>{singleTeam}</p>
               <div className='flex gap-3 md:flex-col'>
-                <button className='bg-secondary p-4 rounded-md'>
-                  <Link href={`../team/${singleTeam}`}>Go to Team</Link>
-                </button>
+              <div className='transition-transform duration-300 cursor-pointer hover:transform hover:-translate-y-1'> 
+                    <Link href="../" className='px-8 py-4 md:px-10 rounded-lg text-xl font-light  bg-secondary dark:text-black'>Go To Teams</Link>
+               </div>
                 <button
                   className='bg-primary p-4 rounded-sm'
                   onClick={() => removeTeamMutation.mutate({ team: singleTeam, userId: session?.user.id || '' })}
