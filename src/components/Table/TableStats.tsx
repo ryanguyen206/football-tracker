@@ -23,8 +23,9 @@ const TableStats : FC<TableStatsProps> = ({which, headers}) => {
 
     const headerAliases: { [key: string]: string } = {
         Interceptions: 'OpponentPassingInterceptions',
-        'Passing':'PassingYards',
-        'Rushing':'RushingYards'
+        'Pass':'PassingYards',
+        'Rush':'RushingYards',
+        'Tds':'Touchdowns'
     };
     
     const {allTeams, setAllTeams} = useFetchAllTeamsQuery()
