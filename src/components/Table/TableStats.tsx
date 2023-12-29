@@ -71,17 +71,17 @@ const TableStats : FC<TableStatsProps> = ({which, headers}) => {
       
     return (
     <div data-aos='fade-up'>
-           <table className="table-auto w-full text-center dark:text-white">
+           <table className="table-auto w-full text-center dark:text-white ">
             <thead className=" bg-squarebg dark:bg-slate-800">
-                <tr className='py-6'>
+                <tr className='py-6 p-20'>
                     {headers.map(header => (
-                        <th className='text-md py-8 border-b hover:cursor-pointer md:text-xl font-bold' onClick={() => handleSortByAscOrDesc(header)} key={header}>
+                        <th className='text-md w-1/5 py-8 border-b hover:cursor-pointer md:text-xl font-bold' onClick={() => handleSortByAscOrDesc(header)} key={header}>
                             {header}
                         </th>
                     ))}
                     {session &&     
-                    <th className='border-b text-md py-4 hover:cursor-pointer md:text-xl font-bold'>
-                      Add Team
+                    <th className='border-b w-1/5 text-md py-4 hover:cursor-pointer md:text-xl font-bold'>
+                      Add
                     </th>}
                   
                 </tr>       

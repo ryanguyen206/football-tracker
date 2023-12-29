@@ -17,11 +17,11 @@ const TeamStats = () => {
       <ButtonOffOrDef selected={selected} setSelected={setSelected} selectedValue={selectedValue} />
         {selectedValue === 'Offense' ? 
             <TableStats 
-                headers={['Team', 'Touchdowns', 'Passing', 'Rushing']}
+                headers={['Team', 'Tds', 'Pass', 'Rush']}
                 which = "offense"
             /> :
             <TableStats 
-                headers={['Team', 'Takeaways', 'Sacks', 'Interceptions']}
+                headers={['Team', 'Tkaways', 'Scks', 'Int']}
                 which = "defense"
         /> 
         }
