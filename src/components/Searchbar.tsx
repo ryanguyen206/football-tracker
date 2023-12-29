@@ -24,7 +24,8 @@ const Searchbar = () => {
       return;
     }
     const tempFilteredItems = allTeams?.filter((singleTeam: finalTeamStats) =>
-      singleTeam.Team.startsWith(userInput.toUpperCase())
+      singleTeam.Team.startsWith(userInput.toUpperCase()) || 
+      singleTeam.TeamName.toUpperCase().startsWith(userInput.toUpperCase())
     );
     setFilteredItems(tempFilteredItems);
   };
