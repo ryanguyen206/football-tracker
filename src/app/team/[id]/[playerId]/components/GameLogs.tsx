@@ -44,6 +44,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
         case 'DE':
         case 'DB':
         case 'LB':
+        case 'ILB':
         case 'S':
         case 'LS':
         case 'DT':
@@ -143,6 +144,7 @@ const GameLogs: FC<GameLogsProps> = async ({playerId}) => {
           case 'DE':
           case 'DB':
           case 'LB':
+          case 'ILB':
           case 'S':
           case 'FS':
           case 'DT':

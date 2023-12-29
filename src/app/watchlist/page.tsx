@@ -34,10 +34,8 @@ const Watchlist = () => {
           {watchlist?.map((singleTeam: any, index: number) => [
             <div key={singleTeam.Team} className='flex flex-col md:flex-row justify-between items-center my-10'>
               <p className='text-2xl mb-6 dark:text-slate-400'>{singleTeam}</p>
-              <div className='flex gap-3 md:flex-col'>
-              <div className='transition-transform duration-300 cursor-pointer hover:transform hover:-translate-y-1'> 
-                    <Link href="../" className='px-8 py-4 md:px-10 rounded-lg text-xl font-light  bg-secondary dark:text-black'>Go To Teams</Link>
-               </div>
+              <div className='flex  gap-6 md:flex-col'>
+                <Link href={`../team/${singleTeam}`} className='p-4 md:px-10 rounded-sm  bg-secondary dark:text-black'>View {singleTeam}</Link>
                 <button
                   className='bg-primary p-4 rounded-sm'
                   onClick={() => removeTeamMutation.mutate({ team: singleTeam, userId: session?.user.id || '' })}
@@ -46,7 +44,7 @@ const Watchlist = () => {
                 </button>
               </div>
             </div>,
-            <hr key={`hr-${singleTeam.Team}`} className='border-t-2 border-gray-700'></hr>,
+            <hr key={`hr-${singleTeam}`} className='border-t-2 border-gray-700'></hr>,
           ])}
         </div>
       )}
