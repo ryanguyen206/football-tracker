@@ -10,7 +10,7 @@ export const getPSTTime = (timestamp: string) => {
 
 
 export const fetchWeeklyMatches = async () => {
-    const response : weeklyMatches = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/SchedulesBasic/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+    const response : weeklyMatches = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/SchedulesBasic/2024?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
     const data = response.data.filter((element: oneMatch) => element.AwayTeam !== "BYE");
     return data;
 
@@ -18,7 +18,7 @@ export const fetchWeeklyMatches = async () => {
 
 
 export const fetchUpcomingTeamMatches= async (teamName: string) => {
-  const response : weeklyMatches = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/SchedulesBasic/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+  const response : weeklyMatches = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/SchedulesBasic/2024?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
   const currentWeek = await fetchCurrentWeek()
   const data = response.data.filter((oneMatch) => oneMatch.Week >= currentWeek && (oneMatch.AwayTeam === teamName || oneMatch.HomeTeam === teamName) )
   return data
@@ -27,12 +27,12 @@ export const fetchUpcomingTeamMatches= async (teamName: string) => {
 
 
 export const fetchStandings = async () => {
-    const response : standings = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/Standings/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+    const response : standings = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/Standings/2024?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
     return response.data
 }
 
 export const fetchAllTeamStats = async () => {
-  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/scores/json/TeamSeasonStats/2024?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`);
   return response.data
 }
 
@@ -61,7 +61,7 @@ export const getAllTeams = async () => {
 
 export const fetchPlayerStats = async (playerId: string) => {
   try {
-    const response = await axios.get(`https://api.sportsdata.io/v3/nfl/stats/json/PlayerSeasonStats/2023?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`)
+    const response = await axios.get(`https://api.sportsdata.io/v3/nfl/stats/json/PlayerSeasonStats/2024?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`)
     const specificPlayerStats = response.data.filter((player : any) => parseInt(playerId) === player.PlayerID )
     return specificPlayerStats
   } catch (error) {
@@ -71,6 +71,6 @@ export const fetchPlayerStats = async (playerId: string) => {
 }
 
 export const fetchPlayerGameLogs = async (playerId:string) => {
-  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsBySeason/2023/${playerId}/all?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`)
+  const response = await axios.get(`https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsBySeason/2024/${playerId}/all?key=${process.env.NEXT_PUBLIC_FOOTBALL_SECRET}`)
   return response.data
 }

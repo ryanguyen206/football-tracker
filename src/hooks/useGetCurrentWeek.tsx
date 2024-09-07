@@ -15,13 +15,13 @@ const useGetCurrentWeek = () => {
         queryFn: () => fetchCurrentWeek(),
         onSuccess: (data  ) => {
             const temp = [];
-            for(let i=1; i<5; i++)
+            for(let i=0; i<5; i++)
             {
               temp.push(data + i);
             }
             setWeeks(temp);
             if (typeof data === 'number') {
-              setSelected(new Set([`Week ${data + 1}`]));
+              setSelected(new Set([`Week ${data}`]));
             }
         }
       })
